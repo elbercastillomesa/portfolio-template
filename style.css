@@ -198,7 +198,9 @@ h4 {
 .project-image img {
   display: block;
   border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
+  border-bottom-left-radius: 5px;  
+
+  text-align: center;
 }
 
 .project-content {
@@ -208,6 +210,14 @@ h4 {
   display: flex;
   justify-content: center;
   flex-direction: column;
+}
+
+img {
+  max-width: 300px;
+  max-height: 350px;
+  
+  display: inline-block;
+  vertical-align: middle;
 }
 
 /*SKILLS*/
