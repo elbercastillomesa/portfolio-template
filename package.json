@@ -1,0 +1,22 @@
+{
+  "name": "portfolio-template",
+  "version": "1.0.1",
+  "description": "EPCM Web Portfolio Template",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elbercastillomesa/portfolio-template.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elbercastillomesa/portfolio-template/issues"
+  },
+  "homepage": "https://github.com/elbercastillomesa/portfolio-template#readme",
+  "dependencies": {
+    "firebase-tools": "^7.12.0"
+  }
+}

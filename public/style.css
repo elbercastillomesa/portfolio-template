@@ -196,11 +196,7 @@ h4 {
 }
 
 .project-image img {
-  display: block;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;  
-
-  text-align: center;
+ 
 }
 
 .project-content {
