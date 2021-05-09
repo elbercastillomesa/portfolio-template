@@ -1,0 +1,3 @@
+[submodule ".\\public\\images\\icons\\fontchido"]
+	path = .\\public\\images\\icons\\fontchido
+	url = https://github.com/aromn/fontchido
