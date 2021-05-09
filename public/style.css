@@ -80,6 +80,10 @@ body {
   padding: 20px;
 }
 
+.upwork {
+  text-decoration: none;  
+}
+
 /*ARROW LINK*/
 #down-arrow {
   /*position: absolute;
@@ -193,10 +197,7 @@ h4 {
 
 .project-image {
   flex: 1 0 auto;
-}
-
-.project-image img {
- 
+  max-width: 300px;
 }
 
 .project-content {
