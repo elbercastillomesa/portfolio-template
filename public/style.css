@@ -80,6 +80,10 @@ body {
   padding: 20px;
 }
 
+.upwork {
+  text-decoration: none;  
+}
+
 /*ARROW LINK*/
 #down-arrow {
   /*position: absolute;
