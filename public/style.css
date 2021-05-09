@@ -193,10 +193,7 @@ h4 {
 
 .project-image {
   flex: 1 0 auto;
-}
-
-.project-image img {
- 
+  max-width: 300px;
 }
 
 .project-content {
