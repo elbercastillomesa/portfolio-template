@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/elbercastillomesa/portfolio-template#readme",
   "dependencies": {
-    "firebase-tools": "^14.8.0"
+    "firebase-tools": "^14.8.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "tailwindcss": "^4.1.10"
   }
 }
