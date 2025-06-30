@@ -1,19 +1,81 @@
+:root {
+  /* Light mode variables */
+  --bg-color: #ede8dc;
+  --text-color: #13110e;
+  --secondary-text-color: #3d352d;
+  --accent-color: #e3ab62;
+  --secondary-bg: #d9d3c7;
+
+  /* Devices breakpoints */
+  --sm: 576px;
+  --md: 768px;
+  --lg: 992px;
+  --xl: 1200px;
+  --xxl: 1400px;
+}
+
+[data-theme='dark'] {
+  /* Dark mode variables */
+  --bg-color: #3d352d;
+  --text-color: #cec6b7;
+  --secondary-text-color: #13110e;
+  --accent-color: #a26222;
+  --secondary-bg: #e3ab62;
+}
+
 body {
   font-family: 'Raleway', sans-serif;
-  background: rgba(242, 242, 242, .6);
+  background: var(--bg-color);
+  color: var(--text-color);
+  text-align: justify;
   margin: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 * {
   box-sizing: border-box
 }
 
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+a:hover {
+  color: var(--secondary-bg);
+}
+
 /*NAVBAR*/
+.theme-toggle {
+  position: fixed;
+  right: 20px;
+  z-index: 1000;
+}
+
+#themeToggle {
+  background: transparent;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
+  font-size: 1.5em;
+  padding: 8px;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+#themeToggle:hover {
+  transform: scale(1.1);
+}
+
 .navbar {
-  background-color: #31b0d5;
-  position: fixed; /* Set the navbar to fixed position */
-  top: 0; /* Position the navbar at the top of the page */
-  width: 100%; /* Full width */
+  background-color: var(--accent-color);
+  position: fixed;
+  /* Set the navbar to fixed position */
+  top: 0;
+  /* Position the navbar at the top of the page */
+  width: 100%;
+  /* Full width */
   display: flex;
   justify-content: center;
 }
@@ -34,10 +96,12 @@ body {
 
 /*JUMBOTRON*/
 .jumbotron {
-  height: 100vh; /*height to 100% of view height*/
-  background: #31b0d5; /*background color to blue*/
-  margin-bottom: 0; /*no bottom margin*/
-
+  height: 60vh;
+  /*height to 100% of view height*/
+  background: var(--accent-color);
+  /*background color from theme*/
+  margin-bottom: 0;
+  /*no bottom margin*/
   display: flex;
   flex-direction: column;
 }
@@ -45,7 +109,7 @@ body {
 .jumbotron-text {
   /*TAGLINE UNDER NAME*/
   font-weight: 400;
-  font-size: 2em;
+  font-size: 1em;
   color: white;
   text-align: center;
   padding-top: 150px;
@@ -55,7 +119,7 @@ body {
   /*YOUR NAME*/
   text-transform: uppercase;
   font-weight: 800;
-  font-size: 3em;
+  font-size: 2em;
   margin-bottom: 0;
 }
 
@@ -81,7 +145,13 @@ body {
 }
 
 .upwork {
-  text-decoration: none;  
+  text-decoration: none;
+}
+
+.upwork-icon {
+  width: 35px;
+  height: 35px;
+  vertical-align: middle;
 }
 
 /*ARROW LINK*/
@@ -106,10 +176,23 @@ body {
 
 .row {
   display: flex;
+  padding: 20px 0;
+  /*add padding to top and bottom*/
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  color: red;
 }
 
-.white {
+.row h2 {
+  color: var(--text-color);
+}
+
+.bg-white {
   background: white;
+}
+
+.bg-white h2 {
+  color: var(--secondary-text-color);
 }
 
 .side-content {
@@ -133,22 +216,22 @@ body {
 }
 
 .box-shadow {
-  -webkit-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
-  box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.75);
 }
 
 h2 {
   font-weight: 200;
   font-size: 2rem;
-  color: #31b0d5;
+  color: var(--secondary-text-color);
   text-transform: uppercase;
   text-align: center;
 }
 
 .content-body {
   line-height: 1.5;
-  color: rgba(0,0,0,.75);
+  color: rgba(0, 0, 0, .75);
 }
 
 /*EDUCATION*/
@@ -156,7 +239,7 @@ h2 {
   display: flex;
   flex-direction: column;
   background-color: white;
-  border: 1px solid rgba(0,0,0,.125);
+  border: 1px solid rgba(0, 0, 0, .125);
   border-radius: .25rem;
   margin-bottom: 30px;
 }
@@ -164,7 +247,7 @@ h2 {
 .card-header {
   padding: .75rem 1.25rem;
   background-color: white;
-  border-bottom: 1px solid rgba(0,0,0,.075);
+  border-bottom: 1px solid rgba(0, 0, 0, .075);
   border-top-left-radius: .25rem;
   border-top-right-radius: .25rem;
 }
@@ -172,6 +255,32 @@ h2 {
 .card-content {
   padding: .25rem 1.25rem;
   flex: 1 1 auto;
+}
+
+.card-project {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-image {
+  margin: 1em;
+  flex-basis: 40%;
+  max-width: 40%;
+}
+
+.card-text-content {
+  flex-basis: 60%;
+  max-width: 60%;
+  padding: 1em;
+}
+
+.card-image img {
+  width: 250px;
+  max-height: 100%;
+  object-fit: contain;
+  vertical-align: middle;
 }
 
 h4 {
@@ -184,38 +293,6 @@ h4 {
   float: right;
 }
 
-/*PROJECTS*/
-.project-card {
-  display: flex;
-  flex-direction: row;
-  background-color: white;
-  border: 1px solid rgba(0,0,0,.125);
-  border-radius: 5px;
-  margin-bottom: 30px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.08), 0 3px 6px rgba(0,0,0,0.15);
-}
-
-.project-image {
-  flex: 1 0 auto;
-  max-width: 300px;
-}
-
-.project-content {
-  flex: 1 1 auto;
-  padding: 1.25rem;
-
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-
-img {
-  max-width: 300px;
-  max-height: 350px;
-  
-  display: inline-block;
-  vertical-align: middle;
-}
 
 /*SKILLS*/
 .ul-skills {
@@ -228,32 +305,28 @@ img {
   margin: 7px;
   padding: 5px 10px;
   color: white;
-  background: #31b0d5;
+  background: var(--accent-color);
   list-style: none;
   cursor: default;
   font-size: 1.2em;
 }
 
 /*CONTACT*/
-.blue {
-  background: #3498db;
-  text-align: center;
-}
-
 .contact {
-  max-width: 500px;
+  max-width: 80%;
   margin: 0 auto;
 }
 
-.contact input, .contact textarea {
+.contact input,
+.contact textarea {
   display: block;
   width: 100%;
   padding: 10px;
   border-radius: 4px;
   border: none;
   margin-bottom: 10px;
-  background: #1d6fa5;
-  color: #fff;
+  /*background: #1d6fa5;*/
+  color: var(--secondary-text-color);
   -webkit-transition: .5s ease all;
   transition: .5s ease all;
 }
@@ -266,17 +339,27 @@ img {
 .contact button {
   display: block;
   width: 100%;
-  background: #fff;
+  background: white;
   border-radius: 4px;
   padding: 5px 10px;
   border: none;
-  color: #3498db;
+  color: var(--secondary-text-color);
   font-weight: 700;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   -webkit-transition: .5s ease all;
   transition: .5s ease all;
 }
 
-.white-text {
-  color: white;
+.copyright {
+  text-align: center;
+  padding: 20px;
+  color: var(--secondary-text-color);
+  font-weight: 500;
+}
+
+/* MEDIA QUERIES */
+@media only screen and (max-width: 768px) {
+  .card-project {
+    flex-direction: column;
+  }
 }
