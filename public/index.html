@@ -1,89 +1,411 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/12.0.0/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/12.0.0/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/12.0.0/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/12.0.0/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/12.0.0/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/12.0.0/firebase-messaging-compat.js"></script>
-    <script defer src="/__/firebase/12.0.0/firebase-storage-compat.js"></script>
-    <script defer src="/__/firebase/12.0.0/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/12.0.0/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/12.0.0/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+<head>
+  <meta charset="utf-8">
+  <title>Elber Castillo Mesa</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+  <link rel="icon" href="images/favicon.png" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,500,600,700,800" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="images/icons/fontchido/fontchido.css">
+</head>
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+<body>
+  <!-- BEGIN NAVBAR -->
+  <div class="navbar">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+
+    <!-- Theme Toggle Button -->
+    <div class="theme-toggle">
+      <button id="themeToggle" aria-label="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+      </button>
     </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
+  </div>
+  <!-- END NAVBAR -->
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+  <div class="container">
 
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
-    </script>
-  </body>
+    <!-- HEADER -->
+    <div class="jumbotron">
+      <div class="jumbotron-text">
+        <h1>Elber Castillo Mesa</h1>
+        <p>Full-Stack Web Developer in Cali, Co.</p>
+      </div>
+      <div class="jumbotron-social">
+        <ul class="ul-social">
+          <li class="li-social-links">
+            <a class="social" href="https://github.com/elbercastillomesa" target="_blank"><i class="fab fa-github"
+                aria-hidden="true"></i></a>
+          </li>
+          <li class="li-social-links">
+            <a class="social" href="https://www.linkedin.com/in/elbercastillomesa" target="_blank"><i
+                class="fab fa-linkedin" aria-hidden="true"></i></a>
+          </li>
+          <li class="li-social-links">
+            <a class="social upwork" href="https://www.upwork.com/o/profiles/users/~016935376984dba5cb/"
+              target="_blank">
+              <img src="images/icons/upwork.svg" alt="Upwork" class="upwork-icon">
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div id="down-arrow">
+        <span><a href="#about"><i class="fa fa-chevron-down" aria-hidden="true"></i></a></span>
+      </div>
+    </div>
+    <!-- END HEADER -->
+
+
+
+    <!-- BEGIN ABOUT -->
+    <div class="row bg-white box-shadow">
+      <div class="side-content"></div>
+      <div class="main-content">
+        <div class="content-header">
+          <a class="anchor" name="about"></a>
+          <h2>About</h2>
+        </div>
+        <div class="content-body">
+          <p>Non-typical engineer, I love to learn and improve myself day by day.</p>
+          <p>Skilled in Bash (Linux), backend technologies as MySQL, PHP (Drupal, CodeIgniter, Laravel) and currently
+            learning Python and ReactJS. It would be great to make my Master in Machine Learning applied in medicine
+            and sports. I'll be going for it next year. Strong information technology professional with a Bachelor
+            in Engineering focused Electronics from Universidad del Valle (CO).</p>
+          <p>As Mother Theresa used to say "Who does not live to serve, does not serve to live", that's why I work
+            with <a style="text-decoration:none" href="https://www.instagram.com/rotaractcali/"
+              target="_blank">Rotaract</a>
+            to make some positive impact on my community.</p>
+        </div>
+      </div>
+      <div class="side-content"></div>
+    </div>
+    <!-- END ABOUT -->
+
+    <!-- BEGIN EXPERIENCE -->
+    <div class="row">
+      <div class="side-content"></div>
+      <div class="main-content">
+        <div class="content-header">
+          <a class="anchor" name="experience"></a>
+          <h2>Experience</h2>
+        </div>
+
+        <div class="content-body">
+          <!-- CARD #1 -->
+          <div class="card">
+            <div class="card-header">
+              <h4>Cafeto Software<span class="job-title">Team Lead Developer</span></h4>
+            </div>
+            <div class="card-content">
+              <p>Team Lead for a multidisciplinary team to develop, improve and support a PROS product called Connect, a
+                great opportunity to increase my experience in the managerial side of the project.</p>
+            </div>
+          </div>
+
+          <!-- CARD #2 -->
+          <div class="card">
+            <div class="card-header">
+              <h4>Universidad del Valle - COLCIENCIAS<span class="job-title">Platform Assistant</span></h4>
+            </div>
+            <div class="card-content">
+              <p>Through April to December of 2019, my last job was as Technical Assistant for the Project "Ondas"
+                executed by the Universidad del Valle / COLCIENCIAS. In this project, I was in charge of the data from
+                the schools, teachers, students and all the administrative personal.</p>
+            </div>
+          </div>
+
+          <!-- CARD #3 -->
+          <div class="card">
+            <div class="card-header">
+              <h4>Cali Express LTDA <span class="job-title">Research & Development Leader</span></h4>
+            </div>
+            <div class="card-content">
+              <p>Until April of 2019 I was the leader of R&D, also was in charge of requirements and approval of
+                technology investments.
+                My biggest impact on this role was leading the team to enhance and update the postal platform of the
+                company, leading
+                to improvements in efficiency on all departments.</p>
+            </div>
+          </div>
+
+          <!-- CARD #4 -->
+          <div class="card">
+            <div class="card-header">
+              <h4>GIS S.A.S <span class="job-title">Development Engineer</span></h4>
+            </div>
+            <div class="card-content">
+              <p>My first job and true love, In 2016 was picked by this startup to implement IoT devices for electrical
+                measurement, all
+                devices were connected to the cloud gathering tons of info in a single management platform. As part
+                junior dev, part
+                electronic engineer I was able to join both technicals abilities to accelerate the development of the
+                MVP.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="side-content"></div>
+    </div>
+    <!-- END EXPERIENCE -->
+
+    <!-- BEGIN EDUCATION -->
+    <div class="row bg-white box-shadow">
+      <div class="side-content"></div>
+      <div class="main-content">
+        <div class="content-header">
+          <a class="anchor" name="education"></a>
+          <h2>Education</h2>
+        </div>
+        <div class="content-body">
+          <!-- EDUCATION 1 -->
+          <div class="card">
+            <div class="card-header">
+              <h4>Coursera<span class="job-title">On Course</span></h4>
+            </div>
+            <div class="card-content">
+              <p>Johns Hopkins University - Crash Course in Data Science.</p>
+              <p>Stanford University - Machine Learning.</p>
+            </div>
+          </div>
+          <!-- EDUCATION 2 -->
+          <div class="card">
+            <div class="card-header">
+              <h4>PacificTIC <span class="job-title">August 2019</span></h4>
+            </div>
+            <div class="card-content">
+              <p>FullStack JavaScript Development.</p>
+            </div>
+          </div>
+          <!-- EDUCATION 3 -->
+          <div class="card">
+            <div class="card-header">
+              <h4>SENA<span class="job-title">February 2017</span></h4>
+            </div>
+            <div class="card-content">
+              <p>Databases - Generalities and Management Systems.</p>
+            </div>
+          </div>
+          <!-- EDUCATION 4 -->
+          <div class="card">
+            <div class="card-header">
+              <h4>SENA<span class="job-title">July 2016</span></h4>
+            </div>
+            <div class="card-content">
+              <p>Web Development using PHP.</p>
+            </div>
+          </div>
+          <!-- EDUCATION 5 -->
+          <div class="card">
+            <div class="card-header">
+              <h4>Universidad Del Valle<span class="job-title">2010-2016</span></h4>
+            </div>
+            <div class="card-content">
+              <p>Bachelor of Electronics Engineering</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="side-content"></div>
+    </div>
+    <!-- END EDUCATION -->
+
+    <!-- BEGIN PROJECTS -->
+    <div class="row">
+      <div class="side-content-sm"></div>
+      <div class="main-content-lg">
+        <div class="content-header">
+          <a class="anchor" name="projects"></a>
+          <h2>Projects</h2>
+        </div>
+        <div class="content-body">
+          <!-- CARD #0 -->
+          <div class="card">
+            <div class="card-header">
+              <h4>PROS Connect
+              <span class="job-title">2019-2021</span></h4>
+            </div>
+            <div class="card-content card-project">
+              <div class="card-image">
+                <img src="images/connect.png" alt="Connect">
+              </div>
+              <div class="card-text-content">
+                <p>Connect is a self-service portal where PROS clients and employees can find information related to
+                  products, guides, and new releases.
+                  Also, engage with other users of the platform through the forums or even request customer support. I'm
+                  the Team lead developer for this
+                  project which is supported by a LAMP Stack.
+                  <br />
+                  <a href="https://connect.pros.com/" target="_blank">PROS Connect</a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- CARD #1 -->
+          <div class="card">
+            <div class="card-header">
+              <h4>Nike Run Club
+              <span class="job-title">2019</span>
+              </h4>
+            </div>
+            <div class="card-content card-project">
+              <div class="card-image">
+                <img src="images/nike.png" alt="Nike">
+              </div>
+              <div class="card-text-content">
+                <p>Web platform to manage the schedule of pieces of training for a specific Nike Run Club in Ecuador,
+                  generate reports, show warnings and ease
+                  the process of verifying the progress of all club members.<br>
+                  Front End made by <a style="text-decoration:none" href="https://www.linkedin.com/in/zapatadev/">Felipe
+                    Zapata</a>, I was in charge of the
+                  Database and Backend development.
+                  <br />
+                  <a href="http://nrcuio.com/nrcuio/" target="_blank">Nike Run Club</a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- CARD #2 -->
+          <div class="card">
+            <div class="card-header">
+              <h4>Postal Management Software
+              <span class="job-title">2018-2019</span></h4>
+            </div>
+            <div class="card-content card-project">
+              <div class="card-image">
+                <img src="images/caex.png" alt="CAEX">
+              </div>
+              <div class="card-text-content">
+                <p>Web-based management resource to handle all postal operations for Cali Express LTDA. <br />
+                  Supported by a LAMP stack, used by fourteen agencies divided into eight states across the country.
+                  <br />
+                  <a href="http://sistema.caex.com.co/" target="_blank">Sistema CAEX</a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- CARD #3 -->
+          <div class="card">
+            <div class="card-header">
+              <h4>Centralized Electrical Measurement System
+                <span class="job-title">2017</span>
+              </h4>
+            </div>
+            <div class="card-content card-project">
+              <div class="card-image">
+                <img src="images/gis.png" alt="GIS">
+              </div>
+              <div class="card-text-content">
+                <p>Development and implementation of a central measurement board controlled through a Web application,
+                  aimed at the management of
+                  energy resources.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- CARD #4 -->
+          <div class="card">
+            <div class="card-header">
+              <h4>Electromyographic Interface for the Command of an Electromechanical Clamp <span
+                  class="job-title">2016</span></h4>
+            </div>
+            <div class="card-content card-project">
+              <div class="card-image">
+                <img src="images/emg.png" alt="EMG">
+              </div>
+              <div class="card-text-content">
+                <p>Implemented procedure for the classification of EMG signals from the forearm. Posteriorly to signal
+                  acquisition and adequation has been
+                  obtained 11-time domain characteristics and 6 frequency-domain characteristics. A heuristic method for
+                  the selection of the most
+                  discriminant characteristics has been used, leading to a 65.8% successful performance in test protocol
+                  for the discrimination of six
+                  movements made by the metacarpal joint.
+                  <br />
+                  <a href="https://drive.google.com/drive/folders/0B5FoALpmGH5idjl0YldiQ3FvZTg" target="_blank">Download
+                    Document</a>
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="side-content-sm"></div>
+    </div>
+    <!-- END PROJECTS -->
+
+    <!-- BEGIN SKILLS -->
+    <div class="row bg-white box-shadow">
+      <div class="side-content"></div>
+      <div class="main-content">
+        <div class="content-header">
+          <a class="anchor" name="skills"></a>
+          <h2>Skills</h2>
+        </div>
+        <div class="content-body">
+          <ul class="ul-skills">
+            <li class="li-skills">PHP</li>
+            <li class="li-skills">HTML</li>
+            <li class="li-skills">MySQL</li>
+            <li class="li-skills">CSS</li>
+            <li class="li-skills">Python</li>
+            <li class="li-skills">Javascript</li>
+          </ul>
+        </div>
+      </div>
+      <div class="side-content"></div>
+    </div>
+    <!-- END SKILLS -->
+
+    <!-- BEGIN CONTACT -->
+    <div class="row">
+      <div class="side-content"></div>
+      <div class="main-content">
+        <div class="content-header">
+          <a class="anchor" name="contact"></a>
+          <h2>Contact Me</h2>
+        </div>
+        <div class="contact content-body">
+          <form method="POST" action="https://formspree.io/elbercastillomesa@gmail.com">
+            <input type="hidden" name="_subject" value="Contact request from personal website" />
+            <input type="email" name="_replyto" placeholder="Your email" required>
+            <textarea name="message" placeholder="Your message" required></textarea>
+            <button type="submit">Send</button>
+          </form>
+        </div>
+      </div>
+      <div class="side-content"></div>
+    </div>
+    <!-- END CONTACT -->
+
+    <!-- BEGIN FOOTER -->
+    <div class="row bg-white">
+      <div class="side-content"></div>
+      <div class="main-content">
+        <div class="content-header">
+        </div>
+        <div class="content-body">
+          <p class="copyright">Copyright &copy; Elber Castillo Mesa 2019-
+            <script>document.write(new Date().getFullYear())</script>
+          </p>
+        </div>
+      </div>
+      <div class="side-content"></div>
+    </div>
+    <!-- END FOOTER -->
+
+  </div>
+</body>
+<script src="theme.js" defer></script>
+<!-- Thanks to Brandon Morelli for the template, which was forked from "https://github.com/bmorelli25/portfolio-template" -->
+
 </html>
